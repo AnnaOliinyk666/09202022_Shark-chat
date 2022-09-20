@@ -5,62 +5,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+    />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
-        :root{
-            --color-blue: #4b6bd8;
-            --color-grey: #f3f5f7;
-        }
-        .background-is-grey{
-          background: var(--color-grey);
-        }
-        .color-is-grey{
-          color: #bfc0c0;
-        }
-        *{
-            margin: 0;
-            border: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            font-weight: 400;
-        }
-        a {
-          text-decoration: none;
-          color: black;
-        }
-        aside{
-            position: fixed;
-            width: 250px;
-            left: 0;
-            background: var(--color-grey);
-            height: 100%;
-        }
-        .sub-menu {
-            height: 100%;
-            display: flex;
-            position: absolute;
-            left: 250px;
-            border: 2px solid var(--color-grey);
-            width: 250px;
-            top: 0;
-            position: fixed;
-            flex-direction: column;
-        }
-        main{
-          position: absolute;
-          height: 100%;
-          width: 400px;
-          left: 504px;
-          top: 0;
-          border-right: 2px solid var(--color-grey);
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
+      :root {
+        --color-blue: #4b6bd8;
+        --color-grey: #f3f5f7;
+      }
+      .background-is-grey {
+        background: var(--color-grey);
+      }
+      .color-is-grey {
+        color: #bfc0c0;
+      }
+      * {
+        margin: 0;
+        border: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      aside {
+        position: fixed;
+        width: 250px;
+        left: 0;
+        background: var(--color-grey);
+        height: 100%;
+        padding:20px;
+        align-items: center;
+      }
+      .sub-menu {
+        height: 100%;
+        display: flex;
+        position: absolute;
+        left: 290px;
+        border: 2px solid var(--color-grey);
+        width: 350px;
+        top: 0;
+        position: fixed;
+        flex-direction: column;
+      }
+      main {
+        position: absolute;
+        height: 100%;
+        width: 500px;
+        left: 644px;
+        top: 0;
+        border-right: 2px solid var(--color-grey);
+      }
+      header{
+        position: fixed;
+        top: 0;
+        height: 85px;
+        border-bottom: 2px solid var(--color-grey);
+        width: 500px;
+        display: flex;
+        
+      }
+      .logo{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+      .logo__icon{
+        font-size: 30px;
+        margin-right: 15px;
+        color: var(--color-blue);
+      }
     </style>
   </head>
   <body>
     <aside>
       <div class="logo">
-        <span class="logo__icon"></span>
+        <span class="logo__icon"><i class="las la-box"></i></span>
         <h3 class="logo__name">Shark</h3>
       </div>
       <nav class="menu">
@@ -68,11 +93,70 @@
           <span class="menu__icon color-is-grey"></span>
           <a class="menu__list" href=""> Dashboard </a>
         </div>
+        <div class="menu__punkt">
+          <span class="menu__icon color-is-grey"
+            ><i class="las la-layer-group"></i
+          ></span>
+          <a class="menu__list" href=""> Dashboard </a>
+        </div>
+        <div class="menu__punkt">
+          <span class="menu__icon color-is-grey"
+            ><i class="las la-chart-area"></i
+          ></span>
+          <a class="menu__list" href=""> Statistics </a>
+        </div>
+        <div class="menu__punkt">
+          <span class="menu__icon color-is-grey"
+            ><i class="las la-comment-alt"></i
+          ></span>
+          <a class="menu__list" href=""> Support </a>
+        </div>
+        <div class="menu__punkt">
+          <span class="menu__icon color-is-grey"
+            ><i class="las la-inbox"></i
+          ></span>
+          <a class="menu__list" href=""> Inbox </a>
+        </div>
+        <div class="menu__punkt">
+          <span class="menu__icon color-is-grey"
+            ><i class="las la-rocket"></i
+          ></span>
+          <a class="menu__list" href=""> Goals </a>
+        </div>
+        <div class="menu__punkt">
+          <span class="menu__icon color-is-grey"
+            ><i class="las la-link"></i
+          ></span>
+          <a class="menu__list" href=""> Links </a>
+        </div>
       </nav>
       <section class="project">
+        <h4 class="project__title color-is-grey">Projects</h4>
         <div class="project__list">
-          <h4 class="project__title color-is-grey">Projects</h4>
-          <span class="project__icon"></span>
+          <span class="project__icon"
+            ><i class="las la-project-diagram"></i
+          ></span>
+          <a class="project__name" href=""> Callipso </a>
+          <span class="project__new-massege">+4</span>
+        </div>
+        <div class="project__list">
+          <span class="project__icon"
+            ><i class="las la-project-diagram"></i
+          ></span>
+          <a class="project__name" href=""> Callipso </a>
+          <span class="project__new-massege">+4</span>
+        </div>
+        <div class="project__list">
+          <span class="project__icon"
+            ><i class="las la-project-diagram"></i
+          ></span>
+          <a class="project__name" href=""> Callipso </a>
+          <span class="project__new-massege">+4</span>
+        </div>
+        <div class="project__list">
+          <span class="project__icon"
+            ><i class="las la-project-diagram"></i
+          ></span>
           <a class="project__name" href=""> Callipso </a>
           <span class="project__new-massege">+4</span>
         </div>
@@ -90,10 +174,16 @@
       </div>
       <div class="sub-menu__massege-wrap">
         <div class="sub-menu__massege background-is-grey">
-          <img class="sub-menu__employee-avatar" src="" alt="" />
+          <img
+            class="sub-menu__employee-avatar"
+            src="https://via.placeholder.com/48"
+            alt=""
+          />
           <div class="sub-menu__employee-text">
             <h4 class="sub-menu__employee-name">Michael.B</h4>
-            <h6 class="sub-menu__employee-position color-is-grey">Project manager</h6>
+            <h6 class="sub-menu__employee-position color-is-grey">
+              Project manager
+            </h6>
             <h6 class="sub-menu__employee-massege-short">Sent you the file</h6>
           </div>
           <span class="sub-menu__employee-massege-count">2</span>
@@ -103,10 +193,20 @@
     <main class="massege-main">
       <header>
         <div class="login">
-          <img class="login__avatar" src="" alt="">
+          <img
+            class="login__avatar"
+            src="https://via.placeholder.com/48"
+            alt="avatar"
+          />
           <h4 class="login__name">Anna.O</h4>
           <h6 class="login__status color-is-grey">Online</h6>
         </div>
+        <div class="search">
+          <input class="search__input" type="text" placeholder="Search" />
+          <span class="search__icon"><i class="las la-search"></i></span>
+        </div>
+        <button class="button__voice"><i class="las la-microphone"></i></button>
+        <button class="button__goal"><i class="las la-bullseye"></i></button>
       </header>
     </main>
   </body>
