@@ -14,12 +14,33 @@
       :root {
         --color-blue: #4b6bd8;
         --color-grey: #f3f5f7;
+        --color-white: #ffffff;
       }
+      html,
+      body,
+      .wrapper {
+        height: 100%;
+      }
+      .wrapper {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 15% 30% 50% 10%;
+        grid-template-rows: 100%;
+        grid-template-areas: "aside sub-menu main panel";
+      }
+      /* ::-webkit-scrollbar и дисплей нон параметр что бы убрать скрол не красивый*/
+
       .background-is-grey {
         background: var(--color-grey);
       }
       .color-is-grey {
         color: #bfc0c0;
+      }
+      .color-is-salmon {
+        color: salmon;
+      }
+      .bg-is-white {
+        background: var(--color-white);
       }
       * {
         margin: 0;
@@ -33,181 +54,386 @@
         color: black;
       }
       aside {
-        position: fixed;
-        width: 250px;
-        left: 0;
+        grid-area: aside;
         background: var(--color-grey);
-        height: 100%;
-        padding:20px;
-        align-items: center;
+        padding: 20px;
+        position: fixed;
       }
       .sub-menu {
-        height: 100%;
-        display: flex;
-        position: absolute;
-        left: 290px;
-        border: 2px solid var(--color-grey);
-        width: 350px;
-        top: 0;
-        position: fixed;
-        flex-direction: column;
-      }
-      main {
-        position: absolute;
-        height: 100%;
-        width: 500px;
-        left: 644px;
-        top: 0;
+        grid-area: sub-menu;
         border-right: 2px solid var(--color-grey);
       }
-      header{
-        position: fixed;
-        top: 0;
-        height: 85px;
-        border-bottom: 2px solid var(--color-grey);
-        width: 500px;
-        display: flex;
-        
+      main {
+        grid-area: main;
+        border-right: 2px solid var(--color-grey);
+        background: linear-gradient();
       }
-      .logo{
+      header {
+        border-bottom: 2px solid var(--color-grey);
+        background: var(--color-white);
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .logo__icon {
+        font-size: 40px;
+        margin-right: 20px;
+        color: var(--color-blue);
+      }
+      .logo__name {
+        font-weight: 600;
+        letter-spacing: 0.05rem;
+      }
+      .menu__punkt {
+        padding: 10px;
+        width: 100%;
+      }
+      .menu__punkt:hover {
+        color: var(--color-blue);
+        background: var(--color-white);
+        border-radius: 8px 0 0 8px;
+        border-right: solid salmon;
+      }
+      .menu__list {
+        line-height: 3rem;
+      }
+      .menu__icon {
+        font-size: 25px;
+        padding-right: 20px;
+      }
+      .menu {
+        padding-top: 30px;
+      }
+      .sub-menu {
+        padding: 20px;
+      }
+      .sub-menu__option {
+        background: var(--color-grey);
+        padding: 5px;
+        border-radius: 25px;
+        align-items: center;
+        margin: 40px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .sub-menu__option-button {
+        padding: 12px 35px;
+        border-radius: 25px;
+      }
+      .panel {
+        grid-area: panel;
+      }
+      button {
+        background: transparent;
+        border: 2px solid var(--color-grey);
+        border-radius: 4px;
+        padding: 5px 10px;
+      }
+      .project__button {
+        border: 2px solid gray;
+        padding: 10px 30px;
+        border-radius: 8px;
+        margin: 30px 50px;
+      }
+      .project__list {
+        padding: 10px;
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
       }
-      .logo__icon{
-        font-size: 30px;
-        margin-right: 15px;
-        color: var(--color-blue);
+      .project {
+        margin-top: 20px;
+      }
+      .project__name {
+        text-align: left;
+      }
+      .project__icon {
+        font-size: 24px;
+      }
+      .project__new-sms {
+        font-size: 12px;
+        background: rgb(189, 188, 188);
+        color: #828283;
+        padding: 5px;
+        border-radius: 8px;
+        margin-left: 10px;
+      }
+      .project__title {
+        margin-bottom: 20px;
+        text-align: left;
+        margin-left: 15px;
+        font-size: 18px;
+      }
+      .sub-menu__title-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .sub-menu__title {
+        font-size: 35px;
+        font-weight: 500;
+      }
+      .sub-menu__position {
+        position: fixed;
+        width: 498px;
+        height: 135px;
+        background: #ffffff;
+      }
+      .sub-menu__sms-wrap {
+        position: relative;
+        top: 160px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 120px;
+        overflow-y: scroll;
+        height: 80%;
+      }
+      .sub-menu__sms-wrap::-webkit-scrollbar{
+        display: none;
+      }
+      .sub-menu__sms {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        border-radius: 20px;
+        margin-top: 20px;
+      }
+      .wrap-sms-new {
+        display: flex;
+      }
+      .sub-menu__employee-avatar {
+        border-radius: 12px;
+        margin-right: 30px;
+      }
+      .sub-menu__employee-sms-count {
+        background: var(--color-blue);
+        color: var(--color-white);
+        padding: 5px 10px;
+        border-radius: 50%;
       }
     </style>
   </head>
   <body>
-    <aside>
-      <div class="logo">
-        <span class="logo__icon"><i class="las la-box"></i></span>
-        <h3 class="logo__name">Shark</h3>
-      </div>
-      <nav class="menu">
-        <div class="menu__punkt">
-          <span class="menu__icon color-is-grey"></span>
-          <a class="menu__list" href=""> Dashboard </a>
+    <div class="wrapper">
+      <aside>
+        <div class="logo">
+          <span class="logo__icon"><i class="las la-cube"></i></span>
+          <h3 class="logo__name">Shark</h3>
         </div>
-        <div class="menu__punkt">
-          <span class="menu__icon color-is-grey"
-            ><i class="las la-layer-group"></i
-          ></span>
-          <a class="menu__list" href=""> Dashboard </a>
-        </div>
-        <div class="menu__punkt">
-          <span class="menu__icon color-is-grey"
-            ><i class="las la-chart-area"></i
-          ></span>
-          <a class="menu__list" href=""> Statistics </a>
-        </div>
-        <div class="menu__punkt">
-          <span class="menu__icon color-is-grey"
-            ><i class="las la-comment-alt"></i
-          ></span>
-          <a class="menu__list" href=""> Support </a>
-        </div>
-        <div class="menu__punkt">
-          <span class="menu__icon color-is-grey"
-            ><i class="las la-inbox"></i
-          ></span>
-          <a class="menu__list" href=""> Inbox </a>
-        </div>
-        <div class="menu__punkt">
-          <span class="menu__icon color-is-grey"
-            ><i class="las la-rocket"></i
-          ></span>
-          <a class="menu__list" href=""> Goals </a>
-        </div>
-        <div class="menu__punkt">
-          <span class="menu__icon color-is-grey"
-            ><i class="las la-link"></i
-          ></span>
-          <a class="menu__list" href=""> Links </a>
-        </div>
-      </nav>
-      <section class="project">
-        <h4 class="project__title color-is-grey">Projects</h4>
-        <div class="project__list">
-          <span class="project__icon"
-            ><i class="las la-project-diagram"></i
-          ></span>
-          <a class="project__name" href=""> Callipso </a>
-          <span class="project__new-massege">+4</span>
-        </div>
-        <div class="project__list">
-          <span class="project__icon"
-            ><i class="las la-project-diagram"></i
-          ></span>
-          <a class="project__name" href=""> Callipso </a>
-          <span class="project__new-massege">+4</span>
-        </div>
-        <div class="project__list">
-          <span class="project__icon"
-            ><i class="las la-project-diagram"></i
-          ></span>
-          <a class="project__name" href=""> Callipso </a>
-          <span class="project__new-massege">+4</span>
-        </div>
-        <div class="project__list">
-          <span class="project__icon"
-            ><i class="las la-project-diagram"></i
-          ></span>
-          <a class="project__name" href=""> Callipso </a>
-          <span class="project__new-massege">+4</span>
-        </div>
-        <button class="project__more">Show more</button>
-      </section>
-    </aside>
-    <section class="sub-menu">
-      <div class="sub-menu__title-wrapper">
-        <h2 class="sub-menu__title">Inbox</h2>
-        <button class="sub-menu__more">+</button>
-      </div>
-      <div class="sub-menu__option">
-        <h4 class="">General</h4>
-        <h4 class="">Total</h4>
-      </div>
-      <div class="sub-menu__massege-wrap">
-        <div class="sub-menu__massege background-is-grey">
-          <img
-            class="sub-menu__employee-avatar"
-            src="https://via.placeholder.com/48"
-            alt=""
-          />
-          <div class="sub-menu__employee-text">
-            <h4 class="sub-menu__employee-name">Michael.B</h4>
-            <h6 class="sub-menu__employee-position color-is-grey">
-              Project manager
-            </h6>
-            <h6 class="sub-menu__employee-massege-short">Sent you the file</h6>
+        <nav class="menu">
+          <div class="menu__punkt">
+            <span class="menu__icon color-is-grey"
+              ><i class="las la-layer-group"></i
+            ></span>
+            <a class="menu__list" href=""> Dashboard </a>
           </div>
-          <span class="sub-menu__employee-massege-count">2</span>
+          <div class="menu__punkt">
+            <span class="menu__icon color-is-grey"
+              ><i class="las la-chart-area"></i
+            ></span>
+            <a class="menu__list" href=""> Statistics </a>
+          </div>
+          <div class="menu__punkt">
+            <span class="menu__icon color-is-grey"
+              ><i class="las la-comment-alt"></i
+            ></span>
+            <a class="menu__list" href=""> Support </a>
+          </div>
+          <div class="menu__punkt">
+            <span class="menu__icon color-is-grey"
+              ><i class="las la-inbox"></i
+            ></span>
+            <a class="menu__list" href=""> Inbox </a>
+          </div>
+          <div class="menu__punkt">
+            <span class="menu__icon color-is-grey"
+              ><i class="las la-rocket"></i
+            ></span>
+            <a class="menu__list" href=""> Goals </a>
+          </div>
+          <div class="menu__punkt">
+            <span class="menu__icon color-is-grey"
+              ><i class="las la-link"></i
+            ></span>
+            <a class="menu__list" href=""> Links </a>
+          </div>
+        </nav>
+        <section class="project">
+          <h4 class="project__title color-is-grey">Projects</h4>
+          <div class="project__list">
+            <span class="project__icon"><i class="las la-stop"></i></span>
+            <a class="project__name" href=""> Callipso </a>
+            <span class="project__new-sms">+4</span>
+          </div>
+          <div class="project__list">
+            <span class="project__icon"><i class="las la-stop"></i></span>
+            <a class="project__name" href=""> BWS bank</a>
+            <span class="project__new-sms">+4</span>
+          </div>
+          <div class="project__list">
+            <span class="project__icon"><i class="las la-stop"></i></span>
+            <a class="project__name" href=""> Unicorn app </a>
+            <span class="project__new-sms">+4</span>
+          </div>
+          <div class="project__list">
+            <span class="project__icon"><i class="las la-stop"></i></span>
+            <a class="project__name" href=""> Salt </a>
+            <span class="project__new-sms">+4</span>
+          </div>
+          <button class="project__button">Show more</button>
+        </section>
+      </aside>
+      <section class="sub-menu">
+        <div class="sub-menu__position">
+          <div class="sub-menu__title-wrapper">
+            <h1 class="sub-menu__title">Inbox</h1>
+            <button class="sub-menu__button">+</button>
+          </div>
+          <div class="sub-menu__option">
+            <h4 class="sub-menu__option-button bg-is-white">General</h4>
+            <h4 class="sub-menu__option-button">Total</h4>
+          </div>
         </div>
+        <div class="sub-menu__sms-wrap">
+          <div class="sub-menu__sms background-is-grey">
+            <div class="wrap-sms-new">
+              <img
+                class="sub-menu__employee-avatar"
+                src="https://via.placeholder.com/60"
+                alt=""
+              />
+              <div class="sub-menu__employee-text">
+                <h2 class="sub-menu__employee-name">Michael.B</h2>
+                <h4 class="sub-menu__employee-position color-is-grey">
+                  Project manager
+                </h4>
+                <h4 class="sub-menu__employee-sms-short">Sent you the file</h4>
+              </div>
+            </div>
+            <span class="sub-menu__employee-sms-count">2</span>
+          </div>
+          <div class="sub-menu__sms background-is-grey">
+            <div class="wrap-sms-new">
+              <img
+                class="sub-menu__employee-avatar"
+                src="https://via.placeholder.com/60"
+                alt=""
+              />
+              <div class="sub-menu__employee-text">
+                <h2 class="sub-menu__employee-name">Michael.B</h2>
+                <h4 class="sub-menu__employee-position color-is-grey">
+                  Project manager
+                </h4>
+                <h4 class="sub-menu__employee-sms-short">Sent you the file</h4>
+              </div>
+            </div>
+            <span class="sub-menu__employee-sms-count">2</span>
+          </div>
+          <div class="sub-menu__sms">
+            <div class="wrap-sms-new">
+              <img
+                class="sub-menu__employee-avatar"
+                src="https://via.placeholder.com/60"
+                alt=""
+              />
+              <div class="sub-menu__employee-text">
+                <h2 class="sub-menu__employee-name">Michael.B</h2>
+                <h4 class="sub-menu__employee-position color-is-grey">
+                  Project manager
+                </h4>
+                <h4 class="sub-menu__employee-sms-short">Sent you the file</h4>
+              </div>
+            </div>
+            <!-- <span class="sub-menu__employee-sms-count">2</span> -->
+          </div>
+          <div class="sub-menu__sms">
+            <div class="wrap-sms-new">
+              <img
+                class="sub-menu__employee-avatar"
+                src="https://via.placeholder.com/60"
+                alt=""
+              />
+              <div class="sub-menu__employee-text">
+                <h2 class="sub-menu__employee-name">Michael.B</h2>
+                <h4 class="sub-menu__employee-position color-is-grey">
+                  Project manager
+                </h4>
+                <h4 class="sub-menu__employee-sms-short">Sent you the file</h4>
+              </div>
+            </div>
+            <!-- <span class="sub-menu__employee-sms-count">2</span> -->
+          </div>
+          <div class="sub-menu__sms">
+            <div class="wrap-sms-new">
+              <img
+                class="sub-menu__employee-avatar"
+                src="https://via.placeholder.com/60"
+                alt=""
+              />
+              <div class="sub-menu__employee-text">
+                <h2 class="sub-menu__employee-name">Michael.B</h2>
+                <h4 class="sub-menu__employee-position color-is-grey">
+                  Project manager
+                </h4>
+                <h4 class="sub-menu__employee-sms-short">Sent you the file</h4>
+              </div>
+            </div>
+            <!-- <span class="sub-menu__employee-sms-count">2</span> -->
+          </div>
+          <div class="sub-menu__sms">
+            <div class="wrap-sms-new">
+              <img
+                class="sub-menu__employee-avatar"
+                src="https://via.placeholder.com/60"
+                alt=""
+              />
+              <div class="sub-menu__employee-text">
+                <h2 class="sub-menu__employee-name">Michael.B</h2>
+                <h4 class="sub-menu__employee-position color-is-grey">
+                  Project manager
+                </h4>
+                <h4 class="sub-menu__employee-sms-short">Sent you the file</h4>
+              </div>
+            </div>
+            <!-- <span class="sub-menu__employee-sms-count">2</span> -->
+          </div>
+        </div>
+      </section>
+      <main class="sms-main">
+        <header>
+          <div class="login">
+            <img
+              class="login__avatar"
+              src="https://via.placeholder.com/48"
+              alt="avatar"
+            />
+            <h4 class="login__name">Anna.O</h4>
+            <h6 class="login__status color-is-grey">Online</h6>
+          </div>
+          <div class="search">
+            <input class="search__input" type="text" placeholder="Search" />
+            <span class="search__icon"><i class="las la-search"></i></span>
+          </div>
+          <button class="header__button">
+            <i class="las la-microphone"></i>
+          </button>
+          <button class="header__button">
+            <i class="las la-bullseye"></i>
+          </button>
+        </header>
+      </main>
+      <div class="panel">
+        <button><i class="las la-ellipsis-v"></i></button>
+        <button><i class="las la-exclamation-circle"></i></button>
+        <button><i class="las la-bell-slash"></i></button>
+        <button><i class="las la-trash-alt"></i></button>
       </div>
-    </section>
-    <main class="massege-main">
-      <header>
-        <div class="login">
-          <img
-            class="login__avatar"
-            src="https://via.placeholder.com/48"
-            alt="avatar"
-          />
-          <h4 class="login__name">Anna.O</h4>
-          <h6 class="login__status color-is-grey">Online</h6>
-        </div>
-        <div class="search">
-          <input class="search__input" type="text" placeholder="Search" />
-          <span class="search__icon"><i class="las la-search"></i></span>
-        </div>
-        <button class="button__voice"><i class="las la-microphone"></i></button>
-        <button class="button__goal"><i class="las la-bullseye"></i></button>
-      </header>
-    </main>
+    </div>
   </body>
 </html>
