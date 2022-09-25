@@ -33,6 +33,9 @@
       .background-is-grey {
         background: var(--color-grey);
       }
+      .bg-is-blue {
+        background: var(--color-blue);
+      }
       .color-is-grey {
         color: #bfc0c0;
       }
@@ -41,6 +44,9 @@
       }
       .bg-is-white {
         background: var(--color-white);
+      }
+      .background-is-grey {
+        background: #c5c5c5;
       }
       * {
         margin: 0;
@@ -63,14 +69,21 @@
         grid-area: sub-menu;
         border-right: 2px solid var(--color-grey);
       }
-      main {
+      .sms-main {
         grid-area: main;
         border-right: 2px solid var(--color-grey);
-        background: linear-gradient();
+        background: linear-gradient(355deg, #e3e2e2, transparent);
       }
       header {
         border-bottom: 2px solid var(--color-grey);
         background: var(--color-white);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        position: fixed;
+        width: 918px;
+        height: 48px;
       }
       .logo {
         display: flex;
@@ -124,6 +137,10 @@
       }
       .panel {
         grid-area: panel;
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        margin: 25px;
       }
       button {
         background: transparent;
@@ -193,7 +210,7 @@
         overflow-y: scroll;
         height: 80%;
       }
-      .sub-menu__sms-wrap::-webkit-scrollbar{
+      .sub-menu__sms-wrap::-webkit-scrollbar {
         display: none;
       }
       .sub-menu__sms {
@@ -216,6 +233,92 @@
         color: var(--color-white);
         padding: 5px 10px;
         border-radius: 50%;
+      }
+      .login__avatar {
+        border-radius: 50%;
+      }
+      .login {
+        display: flex;
+      }
+      .login__wrap {
+        margin-left: 15px;
+        justify-items: center;
+      }
+      .serch__wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .search {
+        margin-right: 15px;
+        background: var(--color-grey);
+        border-radius: 8px;
+        /* padding: 5px; */
+      }
+      .header__button {
+        margin-left: 15px;
+      }
+      .search__input {
+        background: var(--color-grey);
+        padding: 10px;
+        border-radius: 8px;
+      }
+      .search__icon {
+        padding-right: 8px;
+      }
+      .chat {
+        margin: 20px;
+        position: relative;
+        top: 88px;
+        overflow-y: scroll;
+        height: 85%;
+      }
+      .chat::-webkit-scrollbar {
+        display: none;
+      }
+      .chat__user-sms {
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 10px 10px 0 10px;
+        background: #ffffff;
+        /* width: 50%; */
+      }
+      .chat__date {
+        margin-bottom: 20px;
+      }
+      .chat__user {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+      }
+      .chat__user--position-other {
+        align-items: flex-start;
+      }
+      .chat__user--bg-other {
+        background: rgb(201, 200, 200);
+        border-radius: 10px 10px 10px 0;
+      }
+      .sms-input {
+        border-top: 2px solid rgb(201, 200, 200);
+        padding: 20px;
+        background: #e7e6e6;
+        position: fixed;
+        width: 918px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .sms-input__input {
+        width: 70%;
+        padding: 15px;
+        background: transparent;
+      }
+      .sms-input__button {
+        border: none;
+      }
+      .panel__button{
+        margin-top: 20px;
       }
     </style>
   </head>
@@ -413,26 +516,85 @@
               src="https://via.placeholder.com/48"
               alt="avatar"
             />
-            <h4 class="login__name">Anna.O</h4>
-            <h6 class="login__status color-is-grey">Online</h6>
+            <div class="login__wrap">
+              <h4 class="login__name">Anna.O</h4>
+              <h6 class="login__status color-is-grey">Online</h6>
+            </div>
           </div>
-          <div class="search">
-            <input class="search__input" type="text" placeholder="Search" />
-            <span class="search__icon"><i class="las la-search"></i></span>
+          <div class="serch__wrap">
+            <div class="search">
+              <input class="search__input" type="text" placeholder="Search" />
+              <span class="search__icon"><i class="las la-search"></i></span>
+            </div>
+            <button class="header__button">
+              <i class="las la-microphone"></i>
+            </button>
+            <button class="header__button">
+              <i class="las la-bullseye"></i>
+            </button>
           </div>
-          <button class="header__button">
+        </header>
+        <section class="chat">
+          <h4 class="chat__date color-is-grey">25.09.2022, Sunday</h4>
+          <div class="chat__user">
+            <div class="chat__user-time color-is-grey">12:45</div>
+            <h4 class="chat__user-sms">Hello!</h4>
+            <h4 class="chat__user-sms">How are you?</h4>
+            <div class="chat__user-sms-status color-is-grey">viewed</div>
+          </div>
+          <div class="chat__user chat__user--position-other">
+            <div class="chat__user-time color-is-grey">12:45</div>
+            <h4 class="chat__user-sms chat__user--bg-other">Hello!</h4>
+            <h4 class="chat__user-sms chat__user--bg-other">How are you?</h4>
+            <div class="chat__user-sms-status color-is-grey">viewed</div>
+          </div>
+          <div class="chat__user">
+            <div class="chat__user-time color-is-grey">12:45</div>
+            <h4 class="chat__user-sms">Hello!</h4>
+            <h4 class="chat__user-sms">How are you?</h4>
+            <div class="chat__user-sms-status color-is-grey">viewed</div>
+          </div>
+          <div class="chat__user chat__user--position-other">
+            <div class="chat__user-time color-is-grey">12:45</div>
+            <h4 class="chat__user-sms chat__user--bg-other">Hello!</h4>
+            <h4 class="chat__user-sms chat__user--bg-other">How are you?</h4>
+            <div class="chat__user-sms-status color-is-grey">viewed</div>
+          </div>
+          <div class="chat__user">
+            <div class="chat__user-time color-is-grey">12:45</div>
+            <h4 class="chat__user-sms">Hello!</h4>
+            <h4 class="chat__user-sms">How are you?</h4>
+            <div class="chat__user-sms-status color-is-grey">viewed</div>
+          </div>
+          <div class="chat__user chat__user--position-other">
+            <div class="chat__user-time color-is-grey">12:45</div>
+            <h4 class="chat__user-sms chat__user--bg-other">Hello!</h4>
+            <h4 class="chat__user-sms chat__user--bg-other">How are you?</h4>
+            <div class="chat__user-sms-status color-is-grey">viewed</div>
+          </div>
+        </section>
+        <footer class="sms-input">
+          <input
+            class="sms-input__input"
+            type="text"
+            placeholder="Message..."
+          />
+          <button class="sms-input__button background-is-grey">
+            <i class="las la-image"></i>
+          </button>
+          <button class="sms-input__button background-is-grey">
             <i class="las la-microphone"></i>
           </button>
-          <button class="header__button">
-            <i class="las la-bullseye"></i>
+          <button class="sms-input__button bg-is-blue">
+            <i class="las la-paper-plane"></i>
           </button>
-        </header>
+        </footer>
       </main>
       <div class="panel">
-        <button><i class="las la-ellipsis-v"></i></button>
-        <button><i class="las la-exclamation-circle"></i></button>
-        <button><i class="las la-bell-slash"></i></button>
-        <button><i class="las la-trash-alt"></i></button>
+        <button class="panel__button"><i class="las la-ellipsis-v"></i></button>
+        <button class="panel__button"> <i class="las la-exclamation-circle"></i></button>
+        <button class="panel__button"><i class="las la-bell-slash"></i></button>
+        <button class="panel__button"><i class="las la-trash-alt"></i></button>
       </div>
     </div>
   </body>
